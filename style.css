@@ -1,0 +1,40 @@
+#container{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-flow: column-reverse wrap;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px green;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+//#container>div{
+    border: 1px solid green;
+}
+
+.numeral{
+    width: 100px;
+    height: 100px;
+}
+
+button{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: -2.5px;
+    margin-right: -2.5px;
+    border: 0px;
+    //border: 1px solid red;
+}
+
+#display{
+    border: 1px solid orange;
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    font-size: 36px;
+    padding: 20px;
+}
