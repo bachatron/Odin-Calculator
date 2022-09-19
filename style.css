@@ -1,3 +1,10 @@
+body{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 #container{
     width: 400px;
     height: 400px;
@@ -5,7 +12,7 @@
     flex-flow: column-reverse wrap;
     align-items: center;
     justify-content: center;
-    border: solid 1px green;
+    //border: solid 1px green;
     margin-left: auto;
     margin-right: auto;
 
@@ -23,18 +30,20 @@
 button{
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-left: -2.5px;
+    margin-left: -1.5px;
     margin-right: -2.5px;
-    border: 0px;
+    font-size: 20px;
+    //border: 0px;
     //border: 1px solid red;
+    
 }
 
 #display{
     border: 1px solid orange;
-    width: 360px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 400px;
+    height: 50px;
     text-align: right;
     font-size: 36px;
-    padding: 20px;
+    //padding: 20px 0px;
+    
 }
