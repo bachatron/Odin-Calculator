@@ -14,7 +14,7 @@
             <button onclick="addNumber('0')" class="numeral">0</button>
             <button class="numeral">,</button>
             <button class="numeral">%</button>
-            <button class="numeral">+</button>
+            <button onclick="setOperator(add)" class="numeral">+</button>
         </div>
         <div>
             <button onclick="addNumber('1')" class="numeral">1</button>
@@ -32,7 +32,7 @@
             <button onclick="addNumber('7')" class="numeral">7</button>
             <button onclick="addNumber('8')" class="numeral">8</button>
             <button onclick="addNumber('9')" class="numeral">9</button>
-            <button class="numeral">=</button>
+            <button onclick="operate(displayNumber, storedNumber, storedOperator)" class="numeral">=</button>
         </div>
 
     </div>
