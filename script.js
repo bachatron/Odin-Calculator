@@ -5,27 +5,48 @@ let displayNumber = "";
 let storedNumber = "";
 let storedOperator = "";
 
+const updateDisplay = () => display.innerText = displayNumber;
 
-
+//ADD NUMBER TO THE DISPLAY
 const addNumber = function(num) {
     displayNumber += num;
-    display.innerText = displayNumber;
-    console.log(displayNumber);
-};
-
-const deleteNumber = function(){
-    displayNumber = displayNumber.slice(0, -1);
-    display.innerText = displayNumber;
+   updateDisplay()
     console.log(displayNumber);
 }
 
+//DELETE LAST NUMBER FROM DISPLAY
+const deleteNumber = function(){
+    displayNumber = displayNumber.slice(0, -1);
+   updateDisplay()
+    console.log(displayNumber);
+}
+
+//RESET DISPLAY AND AL STORED VALUES
+const clearDisplay = () => {
+    displayNumber = storedNumber = storedOperator = "";
+   updateDisplay()
+}
+
+//SUM SUBSTRACT MULTIPLY AND DIVIDE FUNCTIONS
 const add = (n1, n2) => n1 + n2;
 const substract = (n1, n2) => n1 - n2;
 const multiply = (n1, n2) => n1 * n2;
 const divide = (n1, n2) => n1 / n2;
 
-const setOperator = (op) => storedOperator = op; 
+//STORE THE SELECTED OPERATOR
+const setOperator = (op) => {
+    storedOperator = op;
+    storedNumber = displayNumber;
+    displayNumber = "";
+}
 
 const operate = function (n1, n2, operator){
-    storedOperator !== "" ? displayNumber = operator(n1, n2) : undefined;
+    if (storedOperator == "" || displayNumber == "" || storedNumber == "") {
+        return;
+    } else {
+        displayNumber = String((operator(parseInt(n1), parseInt(n2))));
+        storedNumber = "";
+    }
+   updateDisplay()
+    console.log(displayNumber);
 }

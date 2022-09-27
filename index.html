@@ -7,34 +7,37 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div id="display">0</div>
-    <button onclick="deleteNumber()" id="delete">Delete</button>
-    <div id="container">
-        <div>
-            <button onclick="addNumber('0')" class="numeral">0</button>
-            <button class="numeral">,</button>
-            <button class="numeral">%</button>
-            <button onclick="setOperator(add)" class="numeral">+</button>
-        </div>
-        <div>
-            <button onclick="addNumber('1')" class="numeral">1</button>
-            <button onclick="addNumber('2')" class="numeral">2</button>
-            <button onclick="addNumber('3')" class="numeral">3</button>
-            <button class="numeral">-</button>
-        </div>
-        <div>
-            <button onclick="addNumber('4')" class="numeral">4</button>
-            <button onclick="addNumber('5')" class="numeral">5</button>
-            <button onclick="addNumber('6')" class="numeral">6</button>
-            <button class="numeral">x</button>
-        </div>
-        <div>
-            <button onclick="addNumber('7')" class="numeral">7</button>
-            <button onclick="addNumber('8')" class="numeral">8</button>
-            <button onclick="addNumber('9')" class="numeral">9</button>
-            <button onclick="operate(displayNumber, storedNumber, storedOperator)" class="numeral">=</button>
-        </div>
+    <div id="background">
+        <div id="display">0</div>
+        <button onclick="deleteNumber()" id="delete">Delete</button>
+        <button onclick="clearDisplay()" id="reset">C</button>
+        <div id="container">
+            <div>
+                <button onclick="addNumber('0')" class="numeral">0</button>
+                <button class="numeral">,</button>
+                <button onclick="setOperator(divide)" class="numeral">/</button>
+                <button onclick="setOperator(add)" class="numeral">+</button>
+            </div>
+            <div>
+                <button onclick="addNumber('1')" class="numeral">1</button>
+                <button onclick="addNumber('2')" class="numeral">2</button>
+                <button onclick="addNumber('3')" class="numeral">3</button>
+                <button onclick="setOperator(substract)" class="numeral">-</button>
+            </div>
+            <div>
+                <button onclick="addNumber('4')" class="numeral">4</button>
+                <button onclick="addNumber('5')" class="numeral">5</button>
+                <button onclick="addNumber('6')" class="numeral">6</button>
+                <button onclick="setOperator(multiply)" class="numeral">x</button>
+            </div>
+            <div>
+                <button onclick="addNumber('7')" class="numeral">7</button>
+                <button onclick="addNumber('8')" class="numeral">8</button>
+                <button onclick="addNumber('9')" class="numeral">9</button>
+                <button onclick="operate(storedNumber, displayNumber, storedOperator)" class="numeral">=</button>
+            </div>
 
+        </div>
     </div>
     <script src="./script.js"></script>
 </body>
