@@ -1,11 +1,18 @@
 const display = document.getElementById("display");
 const plus = document.getElementById("plus")
+const operatorDisplay = document.getElementById("operatorDisplay");
+const storedDisplay = document.getElementById("storedDisplay");
+
 
 let displayNumber = "";
 let storedNumber = "";
 let storedOperator = "";
 
-const updateDisplay = () => display.innerText = displayNumber;
+const updateDisplay = () => {
+    display.innerText = displayNumber;
+    storedDisplay.innerText = storedNumber;
+    operatorDisplay.innerText = storedOperator;
+};
 
 //ADD NUMBER TO THE DISPLAY
 const addNumber = function(num) {
@@ -47,6 +54,6 @@ const operate = function (n1, n2, operator){
         displayNumber = String((operator(parseInt(n1), parseInt(n2))));
         storedNumber = "";
     }
-   updateDisplay()
+    updateDisplay()
     console.log(displayNumber);
 }

@@ -1,12 +1,12 @@
 #background{
     width: 450px;
-    height: 540px;
+    height: 700px;
     border: 10px solid green;
     border-radius: 25px;
     background-color: rgb(70, 20, 117);
 }
 
-body, #background{
+#background{
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
@@ -46,7 +46,7 @@ button{
     
 }
 
-#display{
+#display, #operatorDisplay, #storedDisplay{
     background-color: white;
     width: 400px;
     height: 50px;
