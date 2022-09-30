@@ -1,6 +1,9 @@
 const display = document.getElementById("display");
 const plus = document.getElementById("plus")
 
+
+let canUseNumbers = true;
+
 let displayNumber = "";
 let storedNumber = "";
 let storedOperator = "";
@@ -12,21 +15,28 @@ const updateDisplay = () => {
 
 //ADD NUMBER TO THE DISPLAY
 const addNumber = function(num) {
-    displayNumber += num;
-    updateDisplay();
-    //console.log(displayNumber);
+    if (num === "." && displayNumber.includes(".") || !canUseNumbers){
+        return;
+    } else{
+        displayNumber += num;
+        updateDisplay();
+        //console.log(displayNumber);
+    }
 }
 
 //DELETE LAST NUMBER FROM DISPLAY
 const deleteNumber = function(){
-    displayNumber = displayNumber.slice(0, -1);
-    updateDisplay()
-    //console.log(displayNumber);
+    if (canUseNumbers) {
+        displayNumber = displayNumber.slice(0, -1);
+        updateDisplay()
+        //console.log(displayNumber);
+    }
 }
 
 //RESET DISPLAY AND AL STORED VALUES
 const clearDisplay = () => {
     displayNumber = storedNumber = storedOperator = "";
+    canUseNumbers = true;
     updateDisplay()
 }
 
@@ -48,9 +58,14 @@ const setOperator = (op) => {
 }
 
 const operate = function (n1, n2, operator){
-    if (displayNumber == "" || storedNumber == "" || storedOperator == ""){
+    if (n2 == "" || n1 == "" || operator == ""){
         return;
+    } else if (displayNumber === "0" && operator == divide){
+        displayNumber = "ERROR";
+        canUseNumbers = false;
+        updateDisplay();
     } else{
+        //Convert the stored strings into floats and after the operation is done, re-convert the result into string again.
         displayNumber = String((operator(parseFloat(n1), parseFloat(n2))));
         updateDisplay();
     }
