@@ -1,7 +1,6 @@
 const display = document.getElementById("display");
 const plus = document.getElementById("plus")
 
-
 let canUseNumbers = true;
 
 let displayNumber = "";
@@ -48,13 +47,18 @@ const divide = (n1, n2) => n1 / n2;
 
 //STORE THE SELECTED OPERATOR
 const setOperator = (op) => {
-    if (storedNumber !== ""){
-        operate(storedNumber, displayNumber, storedOperator);
+    if (displayNumber === "ERROR" || displayNumber === ".") {
+        return;
+    } else {
+        if (storedNumber !== "" || canUseNumbers){
+            operate(storedNumber, displayNumber, storedOperator);
+        }
+        canUseNumbers = true;
+        storedOperator = op;
+        storedNumber = displayNumber;
+        displayNumber = "";
+        //console.log(`DN: ${displayNumber} SN: ${storedNumber}`)
     }
-    storedOperator = op;
-    storedNumber = displayNumber;
-    displayNumber = "";
-    console.log(`DN: ${displayNumber} SN: ${storedNumber}`)
 }
 
 const operate = function (n1, n2, operator){
@@ -62,13 +66,12 @@ const operate = function (n1, n2, operator){
         return;
     } else if (displayNumber === "0" && operator == divide){
         displayNumber = "ERROR";
-        canUseNumbers = false;
-        updateDisplay();
     } else{
         //Convert the stored strings into floats and after the operation is done, re-convert the result into string again.
-        displayNumber = String((operator(parseFloat(n1), parseFloat(n2))));
-        updateDisplay();
+        displayNumber = (operator(parseFloat(n1), parseFloat(n2)));
     }
+    updateDisplay();
+    canUseNumbers = false;
     storedOperator = "";
 
     
