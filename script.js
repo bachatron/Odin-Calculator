@@ -74,35 +74,27 @@ const operate = function (n1, n2, operator){
     canUseNumbers = false;
     storedOperator = "";
 }
-
-//document.addEventListener('keypress', (event) => {
-//    var name = event.key;
-//    var code = event.code;
-    // Alert the key name and key code on keydown
-//    alert(`Key pressed ${name} \r\n Key code value: ${code}`);
-//  }, false);
   
-
-document.addEventListener('keypress', (event) =>{
-    const numpad = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'Enter', '.', 'Delete'];
-    //const stringedKey = String(event.key);
-    //console.log(stringedKey === "Delete")
-    //console.log (stringedKey in numpad)
-    if (event.key in numpad){
+//Keyboard support
+document.addEventListener('keydown', (event) =>{
+    console.log("OP: " + operatorList[event.key]);
+    if (event.key < 10 || event.key === "."){
         addNumber(event.key);
+    } else if (event.key === "+" || event.key === "-" || event.key === "*" || event.key === "/"){
+        setOperator(operatorList[event.key])
+    } else if (event.key === "Backspace"){
+        deleteNumber();
+    } else if (event.key === "Enter"){
+        operate(storedNumber, displayNumber, storedOperator);
+    } else if (event.key === "c"){
+        clearDisplay();
     }
-    //addNumber(event.key)
-    //numpad.push(event.key)
-    console.log(event.key);
-    
+    console.log(event.key);    
 });
 
-const addKeyboardNum = function (a) {
-    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-    if (a.innerText in nums) {
-        a.addEventListener("onkeypress", function(){
-            addNumber(a.innerText);
-        })
-    }
+const operatorList = {
+    "+" : add,
+    "-" : substract,
+    "*" : multiply,
+    "/" : divide,
 }
-

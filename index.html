@@ -12,31 +12,22 @@
         <button onclick="deleteNumber()" id="delete">Delete</button>
         <button onclick="clearDisplay()" id="reset">C</button>
         <div id="container">
-            <div>
-                <button onclick="addNumber('0')" >0</button>
-                <button onclick="addNumber('.')">,</button>
-                <button onclick="setOperator(divide)">/</button>
-                <button onclick="setOperator(add)">+</button>
-            </div>
-            <div>
-                <button onclick="addNumber('1')" >1</button>
-                <button onclick="addNumber('2')" >2</button>
-                <button onclick="addNumber('3')" >3</button>
-                <button onclick="setOperator(substract)">-</button>
-            </div>
-            <div>
+                <button onclick="addNumber('7')" >7</button>
+                <button onclick="addNumber('8')" >8</button>
+                <button onclick="addNumber('9')" >9</button>
+                <button class="result" onclick="operate(storedNumber, displayNumber, storedOperator)">=</button>
                 <button onclick="addNumber('4')" >4</button>
                 <button onclick="addNumber('5')" >5</button>
                 <button onclick="addNumber('6')" >6</button>
                 <button onclick="setOperator(multiply)">x</button>
-            </div>
-            <div>
-                <button onclick="addNumber('7')" >7</button>
-                <button onclick="addNumber('8')" >8</button>
-                <button onclick="addNumber('9')" >9</button>
-                <button onclick="operate(storedNumber, displayNumber, storedOperator)">=</button>
-            </div>
-
+                <button onclick="addNumber('1')" >1</button>
+                <button onclick="addNumber('2')" >2</button>
+                <button onclick="addNumber('3')" >3</button>
+                <button onclick="setOperator(substract)">-</button>
+                <button onclick="addNumber('0')" >0</button>
+                <button onclick="addNumber('.')">.</button>
+                <button onclick="setOperator(divide)">/</button>
+                <button onclick="setOperator(add)">+</button>               
         </div>
     </div>
     <script src="./script.js"></script>
